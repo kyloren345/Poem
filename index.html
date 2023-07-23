@@ -1,48 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Poem</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .poem {
-            text-align: center;
-            margin: 20px 0;
-        }
-    </style>
+    <meta charset="utf-8" />
+    <link rel="py-5" href="app.py">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Poems</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
+
 <body>
-    <h1>My Poem</h1>
-    <div class="poem">
-        <p>
-            Roses are red, violets are blue,<br>
-            Sugar is sweet, and so are you.<br>
-            In this world, where troubles abound,<br>
-            Your smile and laughter, a joyful sound.
-        </p>
-        <p>
-            Through ups and downs, we will stand strong,<br>
-            Forever together, where we belong.<br>
-            Hand in hand, we'll brave each day,<br>
-            Love's guiding light, showing the way.
-        </p>
-        <p>
-            As seasons change and years go by,<br>
-            Our love will grow, reaching the sky.<br>
-            With each passing moment, our bond will thrive,<br>
-            Forever entwined, hearts alive.
-        </p>
-    </div>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" href="#!">Poems</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="m-4 m-lg-5">
+    
+                    <!-- Typewriter Effect -->
+                    <h1>
+                        <span id="typewriter"></span>
+                        <span class="cursor">|</span>
+                    </h2>
+    
+                    <style>
+                        .cursor {
+                            animation: blink 0.7s infinite;
+                        }
+    
+                        @keyframes blink {
+                            0%, 100% {
+                                opacity: 1;
+                            }
+                            50% {
+                                opacity: 0;
+                            }
+                        }
+                    </style>
+    
+                    <script>
+                        var text = 'Poem Anthology by Kenu Ginige 7.6';
+                        var speed = 75; // Adjust the speed (in milliseconds) to control typing speed
+    
+                        function typeWriter(text, i) {
+                            if (i < text.length) {
+                                document.getElementById('typewriter').innerHTML += text.charAt(i);
+                                i++;
+                                setTimeout(function () { typeWriter(text, i); }, speed);
+                            } else {
+                                setTimeout(function () { deleteText(text.length); }, 1000); // Delay before deleting text
+                            }
+                        }
+    
+                        function deleteText(i) {
+                            if (i >= 0) {
+                                var newText = text.substring(0, i);
+                                document.getElementById('typewriter').innerHTML = newText;
+                                i--;
+                                setTimeout(function () { deleteText(i); }, speed / 2); // Adjust the speed for deleting
+                            } else {
+                                setTimeout(function () { typeWriter(text, 0); }, 1000); // Delay before starting typing again
+                            }
+                        }
+    
+                        typeWriter(text, 0);
+                    </script>
+    
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    <!-- Page Content-->
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion1">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader1">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent1"
+                                            aria-expanded="false" aria-controls="poemContent1" onclick="startOver1()">
+                                            City Lights (Free Verse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent1" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader1" data-bs-parent="#poemAccordion1">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText1"></p>
+
+                                            <script>
+                                                var text1 = `A dazling display of commodity
+                                                Showing other life forms how we live
+                                                City lights allow us to see in the dark at night
+                                                There isn't another way of making light in this way
+                                                this is what we have learnt for aeons
+                                                and its what makes us human intellectuals
+                                                It is what differentiates us from our Homo Sapiens Neaderthalensis ancestors
+                                                This is why nothing else like this exists on this planet
+                                                This is what we are able to do
+                                                When great minds think alike
+                                                We do extraordinary things`;
+
+                                                var speed1 = 50; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index1 = 0;
+
+                                                function typeWriter1() {
+                                                    if (index1 < text1.length) {
+                                                        if (text1.charAt(index1) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText1').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText1').innerHTML += text1.charAt(index1);
+                                                        }
+
+                                                        index1++;
+                                                        setTimeout(typeWriter1, speed1);
+                                                    }
+                                                }
+
+                                                typeWriter1();
+
+                                                function startOver1() {
+                                                    document.getElementById('typewriterText1').innerHTML = '';
+                                                    index1 = 0;
+                                                    typeWriter1();
+                                                }
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader2">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent2"
+                                            aria-expanded="false" aria-controls="poemContent2" onclick="startOver2()">
+                                            Two Lovers (Ballad) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent2" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader2" data-bs-parent="#poemAccordion2">
+                                        <div class="accordion-body poem" style="text-align: left;">
+                                            <p id="typewriterText2"></p>
+
+                                            <script>
+                                                var text2 = `Times are tough in the Wild West where it was cold,
+                                                For the lovers daring and bold,
+                                                Brett and May, their names are said,
+                                                Two outlaws with bounties upon their heads,
+                                                
+                                                They walked through shadows,
+                                                Daring to meet a sparrow,
+                                                With rifles and pistols in hand,
+                                                They wandered through the sand,
+                                                
+                                                They stole a car to head South,
+                                                But upon their arrival they met a mouth,
+                                                The hunting crow perched on a light,
+                                                Was hardly visible in the night,
+                                                
+                                                They heard clamoring from the West,
+                                                And before they knew it there was a Crest,
+                                                They ran for their lives,
+                                                But it was all too devise,
+                                                
+                                                They took refuge in the farmers shed,
+                                                But the farmer was much too easy to fret,
+                                                That he would be killed for his crime,
+                                                And that was when he ended his grime,
+                                                
+                                                That was the last ever heard of the lovers,
+                                                And that was when the bounty was seized by the rovers,
+                                                The Crest took the bounty with ease,
+                                                And walked off into the night's breeze`;
+
+                                                var speed2 = 50; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index2 = 0;
+
+                                                function typeWriter2() {
+                                                    if (index2 < text2.length) {
+                                                        if (text2.charAt(index2) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText2').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText2').innerHTML += text2.charAt(index2);
+                                                        }
+
+                                                        index2++;
+                                                        setTimeout(typeWriter2, speed2);
+                                                    }
+                                                }
+
+                                                typeWriter2();
+
+                                                function startOver2() {
+                                                    document.getElementById('typewriterText2').innerHTML = '';
+                                                    index2 = 0;
+                                                    typeWriter2();
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion3">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader3">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent3"
+                                            aria-expanded="false" aria-controls="poemContent3" onclick="startOver3()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent3" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader3" data-bs-parent="#poemAccordion3">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText3"></p>
+
+                                            <script>
+                                                var text3 = `Among the constellations in the sky,
+                                                There is a majestic figure beaming in the night,
+                                                This wonder of a comet is right there like a fly,
+                                                This is one of the only times to view this sight,
+                                                
+                                                To behold this comet is just absolutely wonderful,
+                                                It is really sometihng to capture,
+                                                This happens not very ofthen so think thoughtful,
+                                                Make a wish and it won't be a fracture,
+                                                
+                                                It looks like time to say goodbye,
+                                                But there is always a next time so don't miss out,
+                                                Don't be too early to wave it just try,
+                                                Good luck next time and try to capture this moment and don't pout`;
+
+                                                var speed3 = 50; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index3 = 0;
+
+                                                function typeWriter3() {
+                                                    if (index3 < text3.length) {
+                                                        if (text3.charAt(index3) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText3').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText3').innerHTML += text3.charAt(index3);
+                                                        }
+
+                                                        index3++;
+                                                        setTimeout(typeWriter3, speed3);
+                                                    }
+                                                }
+
+                                                typeWriter3();
+
+                                                function startOver3() {
+                                                    document.getElementById('typewriterText3').innerHTML = '';
+                                                    index3 = 0;
+                                                    typeWriter3();
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion4">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent4"
+                                            aria-expanded="false" aria-controls="poemContent4" onclick="startOver4()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent4" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader4" data-bs-parent="#poemAccordion4">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText4"></p>
+
+                                            <script>
+                                                var text4 = `The world will never be the same
+                                    Never tell me that there is a possibility that
+                                    The Earth will be able to return to a natural state
+                                    You would have to be the biggest liar in the world to be able to say that
+                                    The Earth will always have warmer temperatures
+                                    Don't believe the lies that other people believe like
+                                    We need to reduce emissions and let the planet heal naturally
+                                    If you really believe that it is possible
+                                    For Earth to be able to return to its normal state
+                                    You are hardcore wrong
+                                    Do not say it is worth arguing over because
+                                    A planet doesn't have the ability to return to its old state
+                                    I would be an imbecile to even give in to the fact that 
+                                    A planet should be able to return to its neutral state
+                                    History has shown us already and it's right
+                                    And there are no more possibilities that
+                                    We can help the planet return to its natural state`;
+
+                                                var speed4 = 50; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index4 = 0;
+
+                                                function typeWriter4() {
+                                                    if (index4 < text4.length) {
+                                                        if (text4.charAt(index4) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText4').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText4').innerHTML += text4.charAt(index4);
+                                                        }
+
+                                                        index4++;
+                                                        setTimeout(typeWriter4, speed4);
+                                                    }
+                                                }
+
+                                                typeWriter4();
+
+                                                function startOver4() {
+                                                    document.getElementById('typewriterText4').innerHTML = '';
+                                                    index4 = 0;
+                                                    typeWriter4();
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+        
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Kenu Ginige 2023 All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>

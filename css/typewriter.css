@@ -1,0 +1,56 @@
+body {
+    font-family: monospace;
+    text-align: center;
+    padding: 20px;
+}
+
+.typewriter p {
+    white-space: nowrap; /* Keeps the text in a single line */
+    margin: 0 auto; /* Centers the text horizontally */
+    overflow: hidden; /* Ensures text is hidden initially */
+    border-right: 2px solid black; /* Creates a caret effect */
+    animation: typing 4s steps(100, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* Starts with no width (hidden) */
+    }
+    to {
+        width: 100%; /* Ends with full width (visible) */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-right-color: transparent; /* Invisible caret at the beginning and end */
+    }
+    50% {
+        border-right-color: black; /* Visible caret in the middle of the animation */
+    }
+}
+
+.typewriter {
+    /* Split the lines of text and animate them separately */
+    display: inline-block;
+    white-space: pre;
+}
+
+.typewriter p {
+    animation: typing 4s steps(100, end), blink-caret 0.75s step-end infinite;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.typewriter p:nth-child(1) {
+    animation-delay: 0s; /* Delay for the first line */
+}
+
+.typewriter p:nth-child(2) {
+    animation-delay: 4s; /* Delay for the second line */
+}
+
+/* Add more nth-child rules for each line with appropriate delays */
+/* For example, nth-child(3) would have a delay of 8s, nth-child(4) would have a delay of 12s, and so on */
+
+/* Adjust the animation-delay values based on the number of lines and animation speed */

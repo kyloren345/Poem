@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<link rel="py-5" href="app.py">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Heroic Features - Start Bootstrap Template</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="m-4 m-lg-5">
+
+                    <!-- Typewriter Effect -->
+                    <h1>
+                        <span id="typewriter"></span>
+                        <span class="cursor">|</span>
+                        </h>
+
+                        <style>
+                            .cursor {
+                                animation: blink 0.7s infinite;
+                            }
+
+                            @keyframes blink {
+
+                                0%,
+                                100% {
+                                    opacity: 1;
+                                }
+
+                                50% {
+                                    opacity: 0;
+                                }
+                            }
+                        </style>
+
+                        <script>
+                            var text = 'Hello, world! This is a typewriter effect.';
+                            var speed = 100; // Adjust the speed (in milliseconds) to control typing speed
+
+                            function typeWriter(text, i) {
+                                if (i < text.length) {
+                                    document.getElementById('typewriter').innerHTML += text.charAt(i);
+                                    i++;
+                                    setTimeout(function () { typeWriter(text, i); }, speed);
+                                } else {
+                                    setTimeout(function () { deleteText(text.length); }, 1000); // Delay before deleting text
+                                }
+                            }
+
+                            function deleteText(i) {
+                                if (i >= 0) {
+                                    var newText = text.substring(0, i);
+                                    document.getElementById('typewriter').innerHTML = newText;
+                                    i--;
+                                    setTimeout(function () { deleteText(i); }, speed / 2); // Adjust the speed for deleting
+                                } else {
+                                    setTimeout(function () { typeWriter(text, 0); }, 1000); // Delay before starting typing again
+                                }
+                            }
+
+                            typeWriter(text, 0);
+                        </script>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page Content-->
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent"
+                                            aria-expanded="false" aria-controls="poemContent" onclick="startOver()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader" data-bs-parent="#poemAccordion">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText"></p>
+
+                                            <script>
+                                                var text = `The world will never be the same
+                            Never tell me that there is a possibility that
+                            The Earth will be able to return to a natural state
+                            You would have to be the biggest liar in the world to be able to say that
+                            The Earth will always have warmer temperatures
+                            Don't believe the lies that other people believe like
+                            We need to reduce emissions and let the planet heal naturally
+                            If you really believe that it is possible
+                            For Earth to be able to return to its normal state
+                            You are hardcore wrong
+                            Do not say it is worth arguing over because
+                            A planet doesn't have the ability to return to its old state
+                            I would be an imbecile to even give in to the fact that 
+                            A planet should be able to return to its neutral state
+                            History has shown us already and it's right
+                            And there are no more possibilities that
+                            We can help the planet return to its natural state`;
+
+                                                var speed = 100; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index = 0;
+
+                                                function typeWriter() {
+                                                    if (index < text.length) {
+                                                        if (text.charAt(index) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText').innerHTML += text.charAt(index);
+                                                        }
+
+                                                        index++;
+                                                        setTimeout(typeWriter, speed);
+                                                    }
+                                                }
+
+                                                typeWriter();
+
+                                                function startOver() {
+                                                    document.getElementById('typewriterText').innerHTML = '';
+                                                    index = 0;
+                                                    typeWriter();
+                                                }
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader2">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent2"
+                                            aria-expanded="false" aria-controls="poemContent2" onclick="startOver2()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent2" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader2" data-bs-parent="#poemAccordion2">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText2"></p>
+
+                                            <script>
+                                                var text2 = `The world will never be the same
+                                Never tell me that there is a possibility that
+                                The Earth will be able to return to a natural state
+                                You would have to be the biggest liar in the world to be able to say that
+                                The Earth will always have warmer temperatures
+                                Don't believe the lies that other people believe like
+                                We need to reduce emissions and let the planet heal naturally
+                                If you really believe that it is possible
+                                For Earth to be able to return to its normal state
+                                You are hardcore wrong
+                                Do not say it is worth arguing over because
+                                A planet doesn't have the ability to return to its old state
+                                I would be an imbecile to even give in to the fact that 
+                                A planet should be able to return to its neutral state
+                                History has shown us already and it's right
+                                And there are no more possibilities that
+                                We can help the planet return to its natural state`;
+
+                                                var speed2 = 100; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index2 = 0;
+
+                                                function typeWriter2() {
+                                                    if (index2 < text2.length) {
+                                                        if (text2.charAt(index2) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText2').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText2').innerHTML += text2.charAt(index2);
+                                                        }
+
+                                                        index2++;
+                                                        setTimeout(typeWriter2, speed2);
+                                                    }
+                                                }
+
+                                                typeWriter2();
+
+                                                function startOver2() {
+                                                    document.getElementById('typewriterText2').innerHTML = '';
+                                                    index2 = 0;
+                                                    typeWriter2();
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion3">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader3">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent3"
+                                            aria-expanded="false" aria-controls="poemContent3" onclick="startOver3()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent3" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader3" data-bs-parent="#poemAccordion3">
+                                        <div class="accordion-body poem" style="text-align: center;">
+                                            <p id="typewriterText3"></p>
+
+                                            <script>
+                                                var text3 = `The world will never be the same
+                                    Never tell me that there is a possibility that
+                                    The Earth will be able to return to a natural state
+                                    You would have to be the biggest liar in the world to be able to say that
+                                    The Earth will always have warmer temperatures
+                                    Don't believe the lies that other people believe like
+                                    We need to reduce emissions and let the planet heal naturally
+                                    If you really believe that it is possible
+                                    For Earth to be able to return to its normal state
+                                    You are hardcore wrong
+                                    Do not say it is worth arguing over because
+                                    A planet doesn't have the ability to return to its old state
+                                    I would be an imbecile to even give in to the fact that 
+                                    A planet should be able to return to its neutral state
+                                    History has shown us already and it's right
+                                    And there are no more possibilities that
+                                    We can help the planet return to its natural state`;
+
+                                                var speed3 = 100; // Adjust the speed (in milliseconds) to control typing speed
+                                                var index3 = 0;
+
+                                                function typeWriter3() {
+                                                    if (index3 < text3.length) {
+                                                        if (text3.charAt(index3) === '\n') // Correc  ted: Removed the semicolon
+                                                        {
+                                                            document.getElementById('typewriterText3').innerHTML += '<br>';
+                                                        }
+                                                        else {
+                                                            document.getElementById('typewriterText3').innerHTML += text3.charAt(index3);
+                                                        }
+
+                                                        index3++;
+                                                        setTimeout(typeWriter3, speed3);
+                                                    }
+                                                }
+
+                                                typeWriter3();
+
+                                                function startOver3() {
+                                                    document.getElementById('typewriterText3').innerHTML = '';
+                                                    index3 = 0;
+                                                    typeWriter3();
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <style>
+        /* Add CSS styles to auto-scroll the poem */
+        .poem-container {
+            overflow: hidden;
+        }
+    
+        .poem-content {
+            animation: scrollText 60s linear infinite;
+        }
+    
+        @keyframes scrollText {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+    
+    <section class="pt-4" dir="ltr">
+        <div class="container px-lg-5">
+            <!-- Page Features -->
+            <div class="row gx-lg-5" style="text-align: left;">
+                <div class="col-lg-4 col-md-12 mb-5" style="margin:20px;">
+                    <div class="card bg-light border-0 h-100">
+                        <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0 text-left-card">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="accordion" id="poemAccordion4">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="poemHeader4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#poemContent4"
+                                            aria-expanded="false" aria-controls="poemContent4" onclick="startOver4()">
+                                            Climate Change (Reverse Poem) <span class="collapsible-arrow"></span>
+                                        </button>
+                                    </h2>
+                                    <div id="poemContent4" class="accordion-collapse collapse"
+                                        aria-labelledby="poemHeader4" data-bs-parent="#poemAccordion4">
+                                        <!-- Add the poem-container div to enable auto-scrolling -->
+                                        <div class="accordion-body poem-container">
+                                            <!-- Add the poem-content div to apply the animation -->
+                                            <div class="accordion-body poem-content" style="text-align: center;">
+                                                <p id="typewriterText4"></p>
+    
+                                                <script>
+                                                    var text4 = `The world will never be the same
+                                        Never tell me that there is a possibility that
+                                        The Earth will be able to return to a natural state
+                                        You would have to be the biggest liar in the world to be able to say that
+                                        The Earth will always have warmer temperatures
+                                        Don't believe the lies that other people believe like
+                                        We need to reduce emissions and let the planet heal naturally
+                                        If you really believe that it is possible
+                                        For Earth to be able to return to its normal state
+                                        You are hardcore wrong
+                                        Do not say it is worth arguing over because
+                                        A planet doesn't have the ability to return to its old state
+                                        I would be an imbecile to even give in to the fact that 
+                                        A planet should be able to return to its neutral state
+                                        History has shown us already and it's right
+                                        And there are no more possibilities that
+                                        We can help the planet return to its natural state`;
+    
+                                                    var speed4 = 50; // Adjust the speed (in milliseconds) to control typing speed
+                                                    var index4 = 0;
+    
+                                                    function typeWriter4() {
+                                                        if (index4 < text4.length) {
+                                                            if (text4.charAt(index4) === '\n') // Corrected: Removed the semicolon
+                                                            {
+                                                                document.getElementById('typewriterText4').innerHTML += '<br>';
+                                                            }
+                                                            else {
+                                                                document.getElementById('typewriterText4').innerHTML += text4.charAt(index4);
+                                                            }
+    
+                                                            index4++;
+                                                            setTimeout(typeWriter4, speed4);
+                                                        }
+                                                    }
+    
+                                                    typeWriter4();
+    
+                                                    function startOver4() {
+                                                        document.getElementById('typewriterText4').innerHTML = '';
+                                                        index4 = 0;
+                                                        typeWriter4();
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
